@@ -2,7 +2,7 @@ import numpy as np
 
 
 # check win for tic-tac-toe
-def check_win(matrix: np.ndarray):
+def check_win(matrix: np.ndarray)->int:
     """
     if element == 1: its 'X' moves
     if element == 0: its 'O' moves

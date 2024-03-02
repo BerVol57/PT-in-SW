@@ -21,3 +21,5 @@ def test_get_diag():
 
     assert get_diag([[1, 1],
                      [1, 1]]) == [1, 1]
+
+    assert get_diag([[1]]) == [1]

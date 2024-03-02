@@ -30,6 +30,3 @@ def check_win(matrix: np.ndarray):
     else:
         return winner
 
-
-if __name__ == "__main__":
-    check_win(np.array([[0, 1, 0], [1, 0, 1], [1, 0, 1]]))

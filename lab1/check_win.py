@@ -2,11 +2,12 @@ import numpy as np
 
 
 # check win for tic-tac-toe
-def check_win(matrix: np.ndarray)->int:
+def check_win(matrix: list)->int:
     """
     if element == 1: its 'X' moves
     if element == 0: its 'O' moves
     """
+    matrix = np.array(matrix)
     winner = 'tie'
 
     if (np.diag(matrix) == 0).all() or (np.diag(np.fliplr(matrix)) == 0).all():

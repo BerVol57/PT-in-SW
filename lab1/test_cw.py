@@ -1,4 +1,4 @@
-from check_win import check_win
+from src.check_win import check_win
 
 
 def test_check_win():

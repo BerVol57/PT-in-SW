@@ -1,51 +1,23 @@
-from src.diag import check_win
+from src.diag import get_diag
 
 
-def test_check_win():
-    assert check_win([[1, 1, 0],
-                      [1, 0, 1],
-                      [1, 0, 1]]) == 1
+def test_get_diag():
+    assert get_diag([[1, 1, 1],
+                     [1, 1, 1],
+                     [1, 1, 1]]) == [1, 1, 1]
 
-    assert check_win([[0, 1, 0],
-                      [1, 0, 1],
-                      [1, 1, 1]]) == 1
+    assert get_diag([[2, 1, 1],
+                     [1, 6, 1],
+                     [1, 1, 8]]) == [2, 6, 8]
 
-    assert check_win([[0, 1, 1],
-                      [0, 1, 0],
-                      [1, 0, 1]]) == 1
+    assert get_diag([[1, 0, 0],
+                     [0, 1, 0],
+                     [0, 0, 1]]) == [1, 1, 1]
 
-    assert check_win([[1, 1, 0],
-                      [1, 1, 1],
-                      [1, 0, 1]]) == 1
+    assert get_diag([[1, 1, 1, 1],
+                     [1, 1, 1, 1],
+                     [1, 1, 1, 1],
+                     [1, 1, 1, 1]]) == [1, 1, 1, 1]
 
-    assert check_win([[0, 0, 0],
-                      [1, 1, 0],
-                      [1, 0, 1]]) == 0
-
-    assert check_win([[1, 0, 1],
-                      [1, 0, 0],
-                      [0, 0, 1]]) == 0
-
-    assert check_win([[0, 1, 0],
-                      [1, 0, 1],
-                      [1, 0, 0]]) == 0
-
-    assert check_win([[1, 1, 0],
-                      [1, 0, 1],
-                      [0, 0, 1]]) == 0
-
-    assert check_win([[0, 1, 0],
-                      [1, 0, 1],
-                      [1, 0, 1]]) == -1
-
-    assert check_win([[0, 1, 0],
-                      [0, 1, 1],
-                      [1, 0, 1]]) == -1
-
-    assert check_win([[1, 1, 0],
-                      [0, 0, 1],
-                      [1, 1, 0]]) == -1
-
-    assert check_win([[1, 0, 1],
-                      [0, 1, 0],
-                      [0, 1, 0]]) == -1
+    assert get_diag([[1, 1],
+                     [1, 1]]) == [1, 1]

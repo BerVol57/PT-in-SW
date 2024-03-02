@@ -1,5 +1,4 @@
 from check_win import check_win
-import numpy as np
 
 
 def test_check_win():

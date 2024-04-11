@@ -1,5 +1,6 @@
 import sys
 
+
 stdin_file = sys.stdin
 stdout_file = sys.stdout
 stderr_file = sys.stderr
@@ -47,7 +48,7 @@ def file_eval(file):
         if my_eval(line):
             stdout_file.write(my_eval(line))
         else:
-            raise "Error"
+            sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ from eval import *
 def assert_stdout(self, string_input, expection_stdout, expection_stderr):
     with StringIO() as stdout_buf, StringIO() as stderr_buf:
         with redirect_stdout(stdout_buf), redirect_stderr(stderr_buf):
-            result = subprocess.run(["py", "eval.py"], input=string_input, text=True, capture_output=True)
+            result = subprocess.run(["python", "eval.py"], input=string_input, text=True, capture_output=True)
         captured_stdout = result.stdout
         captured_stderr = result.stderr
 
@@ -23,7 +23,7 @@ def assert_stdout(self, string_input, expection_stdout, expection_stderr):
 def assert_exit_code(self, string_input, expection_code):
     # with open(filepath, 'r') as f:
     #     input_content = f.read()
-    result = subprocess.run(["py", "eval.py"], input=string_input, text=True, capture_output=True)
+    result = subprocess.run(["python", "eval.py"], input=string_input, text=True, capture_output=True)
     self.assertEqual(result.returncode, expection_code)
 
 

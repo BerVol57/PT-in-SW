@@ -10,7 +10,7 @@ from eval import *
 def assert_stdout(self, string_input, expection_stdout, expection_stderr):
     with StringIO() as stdout_buf, StringIO() as stderr_buf:
         with redirect_stdout(stdout_buf), redirect_stderr(stderr_buf):
-            result = subprocess.run(["python", "eval.py"], input=string_input, text=True, capture_output=True)
+            result = subprocess.run(["python", "lab2/eval.py"], input=string_input, text=True, capture_output=True)
         captured_stdout = result.stdout
         captured_stderr = result.stderr
 
@@ -24,7 +24,7 @@ def assert_stdout(self, string_input, expection_stdout, expection_stderr):
 def assert_exit_code(self, string_input, expection_code):
     # with open(filepath, 'r') as f:
     #     input_content = f.read()
-    result = subprocess.Popen(["python", "eval.py"],
+    result = subprocess.Popen(["python", "lab2/eval.py"],
                               stdin=subprocess.PIPE,
                               stdout=subprocess.PIPE,
                               stderr=subprocess.PIPE,
@@ -54,14 +54,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertFalse(my_eval("(2+(2+2"))
         self.assertFalse(my_eval("2+2)+2)"))
 
-    # def test_stdin_stdout_and_limit(self):
-    #     assert_stdout(self, "2+2*2", "6", "")
-    #     assert_stdout(self, "456", "456", "")
-    #     assert_stdout(self, "(", "", "Error")
-    #     assert_stdout(self, "", "", "")
-    #     assert_stdout(self, "(             )", "", "Error")
-    #     assert_stdout(self, "9223372036854775807+1", str(sys.maxsize + 1), "")
-    #     assert_stdout(self, "-9223372036854775807-2", str(-sys.maxsize - 2), "")
+    def test_stdin_stdout_and_limit(self):
+        assert_stdout(self, "2+2*2", "6", "")
+        assert_stdout(self, "456", "456", "")
+        assert_stdout(self, "(", "", "Error")
+        assert_stdout(self, "", "", "")
+        assert_stdout(self, "(             )", "", "Error")
+        assert_stdout(self, "9223372036854775807+1", str(sys.maxsize + 1), "")
+        assert_stdout(self, "-9223372036854775807-2", str(-sys.maxsize - 2), "")
 
     def test_exit_code(self):
         assert_exit_code(self, "2+2*2", 0)

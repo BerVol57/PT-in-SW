@@ -39,7 +39,7 @@ def my_eval(line_):
         if check(line_):
             return str(eval(line_)) + "\n"
         else:
-            stderr_file.write("Error")
+            sys.stderr.write("Error")
             return False
 
 
